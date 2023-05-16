@@ -12,6 +12,7 @@ function scrollFunction() {
   }
 }
 
+
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
   document.body.scrollTop = 0;
@@ -25,3 +26,21 @@ hamburger.onclick = function() {
   navBar = document.querySelector(".nav-bar");
   navBar.classList.toggle("active");
 }
+
+var hamburger = document.querySelector('.hamburger');
+hamburger.addEventListener('click', function() {
+  hamburger.classList.toggle('active');
+});
+
+//Function that closes the navbar after you click a link
+var links = document.querySelectorAll('.nav-bar a');
+
+links.forEach(function(link) {
+  link.addEventListener('click', function() {
+    var navBar = document.querySelector('.nav-bar');
+    navBar.classList.remove('active');
+    setTimeout(function() {
+      navBar.style.transition = 'none';
+    }, 300);
+  });
+});
